@@ -1,11 +1,20 @@
 //import { Typography } from "@mui/material";
 import React, { Fragment } from "react";
-import JournalLayout from "../layout/JournalLayout";
+import { JournalLayout } from "../layout/JournalLayout";
 import { NoteView, NothingSelectedView } from "../views";
 import { IconButton } from "@mui/material";
 import { AddOutlined } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { startNewNote } from "../../store/journal";
 
-const JournalPage = () => {
+export const JournalPage = () => {
+  const dispatch = useDispatch();
+  const { isSaving, active } = useSelector((state) => state.journal);
+
+  const onClickNewNote = () => {
+    dispatch(startNewNote());
+  };
+
   return (
     <Fragment>
       <JournalLayout>
@@ -18,9 +27,14 @@ const JournalPage = () => {
         {/* NothinSelected */}
         {/* {<NothingSelectedView />} */}
         {/* NoteView */}
-        {<NoteView />}
+        {/* {<NoteView />} */}
+
+        {!!active ? <NoteView /> : <NothingSelectedView />}
+
         <IconButton
+          onClick={onClickNewNote}
           size="large"
+          //disabled={isSaving}
           sx={{
             color: "white",
             backgroundColor: "error.main",
@@ -37,4 +51,4 @@ const JournalPage = () => {
   );
 };
 
-export default JournalPage;
+//export default JournalPage;

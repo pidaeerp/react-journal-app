@@ -5,10 +5,13 @@ import { NavBar, SideBar } from "../components";
 
 const drawerWidth = 280;
 
-const JournalLayout = ({ children }) => {
+export const JournalLayout = ({ children }) => {
   return (
     <Fragment>
-      <Box sx={{ display: "flex" }}>
+      <Box
+        sx={{ display: "flex" }}
+        className="animate__animated animate__fadeIn animate__faster"
+      >
         {/* Navbar drawerWidth */}
         <NavBar drawerWidth={drawerWidth} />
         {/* Sidebar drawerWidth */}
@@ -23,4 +26,4 @@ const JournalLayout = ({ children }) => {
   );
 };
 
-export default JournalLayout;
+//export default JournalLayout;

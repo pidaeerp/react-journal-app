@@ -3,7 +3,6 @@ import {
   Box,
   Divider,
   Drawer,
-  Grid,
   Grid2,
   List,
   ListItem,
@@ -14,8 +13,11 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
 
 export const SideBar = ({ drawerWidth }) => {
+  const { displayName } = useSelector((state) => state.auth);
+
   return (
     <Box
       component="nav"
@@ -31,7 +33,7 @@ export const SideBar = ({ drawerWidth }) => {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Maximus Orva
+            {displayName}
           </Typography>
         </Toolbar>
         <Divider />

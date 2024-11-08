@@ -5,25 +5,26 @@ import { ImageGallery } from "../components";
 
 export const NoteView = () => {
   return (
-    <Grid
+    <Grid2
+      className="animate__animated animate__fadeIn animate__faster"
       container
       direction="row"
       justifyContent="space-between"
       alignItems="center"
       sx={{ mb: 1 }}
     >
-      <Grid item>
+      <Grid2>
         <Typography fontSize={39} fontWeight="light">
           28 de octubre del 2024
         </Typography>
-      </Grid>
-      <Grid item>
+      </Grid2>
+      <Grid2>
         <Button color="primary" sx={{ padding: 2 }}>
           <SaveOutlined sx={{ fontSize: 30, mr: 1 }} />
           Guardar
         </Button>
-      </Grid>
-      <Grid container>
+      </Grid2>
+      <Grid2 container>
         <TextField
           type="text"
           variant="filled"
@@ -41,10 +42,10 @@ export const NoteView = () => {
           placeholder="¿Qué sucedió el día de hoy?"
           minRows={5}
         />
-      </Grid>
+      </Grid2>
       {/* Image gallery */}
       <ImageGallery />
-    </Grid>
+    </Grid2>
   );
 };
 
